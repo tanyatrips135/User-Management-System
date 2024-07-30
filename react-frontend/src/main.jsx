@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import UsersList from "./components/UsersList.jsx";
+import CreateProfile from "./components/CreateProfile.jsx";
 
 const router = createBrowserRouter([
     {
@@ -11,7 +12,10 @@ const router = createBrowserRouter([
         element: <App />,
         children: [
             { path: "/", element: <UsersList /> },
-            { path: "/create", element: <h1>Create Profile</h1> },
+            {
+                path: "/create",
+                element: <CreateProfile />,
+            },
         ],
     },
 ]);

@@ -1,7 +1,10 @@
 const express = require("express");
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/users");
 
 const app = express();
 const userRoutes = require("./routes/users");
+
 
 app.use(express.json());
 

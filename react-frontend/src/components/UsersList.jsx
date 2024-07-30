@@ -12,7 +12,7 @@ function UsersList() {
 
     const [usersData, setUsers] = useState([]);
     const users = usersData.users;
-    console.log(usersData);
+    // console.log(usersData);
     const pages = usersData.pages;
 
     useEffect(() => {

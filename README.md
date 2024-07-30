@@ -7,9 +7,11 @@ Includes endpoints to do the following:
 - Create a user
 - Delete a user by id
 
-Stores the user data in memory using a JSON file.
+Stores the user data in a MongoDB database.
 
 ## React.js frontend application
 The frontend application is integrated with the backend server.
 
-It displays the list of users with features like cards and pagination. 
+It displays the list of users with features like cards and pagination.
+
+Allows users to add new cards.

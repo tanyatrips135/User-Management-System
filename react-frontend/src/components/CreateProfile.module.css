@@ -1,0 +1,119 @@
+.background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f6f6f6;
+    height: 100%;
+    width: 100%;
+}
+
+
+.background > .container {
+    flex-direction: column;
+    display: flex;
+    /* align-content: center; */
+    margin: 15px auto;
+    gap: 30px;
+}
+
+.heading {
+    font-family: "Outfit", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 460px;
+    /* height: 626px; */
+    padding: 20px 0px;
+    gap: 20px;
+    border-radius: 20px;
+    border: 2px 0px 0px 0px;
+    opacity: 0px;
+    border: 2px solid #eaecf0;
+    background-color: #ffffff;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 0.05rem;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    background-color: #ffffff;
+}
+
+.form input {
+    width: 396px;
+    height: fixed 44px;
+    padding: 10px 14px 10px 14px;
+    margin: 5px;
+    gap: 8px;
+    border-radius: 8px;
+    opacity: 0px;
+    background-color: #ffffff;
+    border: 1px solid #d0d5dd;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.sublabel {
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    text-align: left;
+    color: #667085;
+}
+
+
+.buttonsFrame {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: baseline;
+    max-width: 460px;
+    width: 460px;
+    height: fixed 76px;
+    gap: 10px;
+    border-radius: 0px 0px 12px 12px;
+    background: #ffffff;
+    box-shadow: 0px -1px 2px 0px #00000014;
+}
+
+.cancel {
+    max-width: 120px;
+    height: 44px;
+    padding: 10px 24px 10px 24px;
+    color: #561fe7;
+    border-radius: 8px;
+    border: 1px solid #561fe7;
+    opacity: 0px;
+    background: #ffffff;
+}
+
+.cancel:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #561fe7;
+}
+
+button {
+    width: 120px;
+    height: 44px;
+    margin-right: 32px;
+    padding: 0;
+    border-radius: 8px;
+    background: #6a39ea;
+    border: 1px solid #d0d5dd;
+    color: #ffffff;
+}
+
+button:hover {
+    cursor: pointer;
+    background: #3c2182;
+}

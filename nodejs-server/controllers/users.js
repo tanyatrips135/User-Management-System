@@ -1,57 +1,72 @@
+const userModel = require("../models/users");
 const USERS_PER_PAGE = 8;
 
-const fs = require('fs');
-let rawdata = fs.readFileSync('users.json');
-let users = JSON.parse(rawdata);
-// console.log(users);
 
 getUsers = (req, res, next) => {
     const page = req.query.page;
-    let numOfPages = Math.ceil(users.length / USERS_PER_PAGE);
     if (!page) {
-        res.status(200).json({pages: numOfPages, users: users});
+        userModel
+            .find({})
+            .then((users) =>
+                userModel
+                    .countDocuments()
+                    .then((count) =>
+                        res.json({ pages: Math.ceil(count / USERS_PER_PAGE), users: users })
+                    )
+            );
     } else {
-        const startingIndex = (page - 1) * USERS_PER_PAGE;
-        res.status(200).json({pages: numOfPages, users: users.slice(startingIndex, startingIndex + USERS_PER_PAGE)});
+        userModel
+            .find({})
+            .skip((page - 1) * USERS_PER_PAGE)
+            .limit(USERS_PER_PAGE)
+            .then((users) =>
+                userModel
+                    .countDocuments()
+                    .then((count) =>
+                        res.json({ pages: Math.ceil(count / USERS_PER_PAGE), users: users })
+                    )
+            );
     }
 };
 
 
 getUser = (req, res, next) => {
     const userId = +req.params.userId;
-    // console.log(userId);
-    const user = users.find((user) => user.id === userId);
-    if (user) {
-        res.json(user);
-    } /*else {
-        throw new Error("Invalid user id.");
-    }*/
+    userModel.find({ id: userId }).then((user) => res.json(user));
 };
+
 
 postUser = (req, res, next) => {
     const user = {
-        id: Math.floor(Math.random() * 1000000),
         name: req.body.name,
         email: req.body.email,
         image: req.body.image,
+        id: Math.floor(Math.random() * 1000000),
     };
     if (user.name && user.email) {
-        users.push(user);
-        res.status(201).json({
-            message: "User added successfully.",
-            user: user,
-        });
+        userModel
+            .create(user)
+            .then(() =>
+                res.status(201).json({
+                    message: "User added successfully.",
+                    user: user,
+                })
+            )
+            .catch((err) => res.json(err));
     } else {
         throw new Error("Invalid arguments");
     }
 };
 
+
 deleteUser = (req, res, next) => {
     const userId = +req.params.userId;
-    users = users.filter((user) => user.id !== userId);
-    console.log(users);
-    res.status(200).send({ message: "user was successfully deleted." });
+    userModel
+        .deleteOne({ id: userId })
+        .then((status) => res.json(status))
+        .catch((err) => res.json(err));
 };
+
 
 module.exports = {
     getUsers: getUsers,
