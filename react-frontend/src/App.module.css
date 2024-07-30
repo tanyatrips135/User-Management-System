@@ -1,0 +1,5 @@
+.clearfix {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 988px;
+}

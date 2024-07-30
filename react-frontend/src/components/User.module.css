@@ -1,0 +1,26 @@
+.grid-item {
+    align-content: top;
+    font-size: 22px;
+    text-align: center;
+    width: Fill 276px;
+    height: 366px;
+    border-radius: 16px;
+    background: #f6f6f6;
+    border: 1px solid #e2e2e2;
+    color: #101828;
+    gap: 16px;
+}
+
+.name {
+    font-weight: 700;
+    margin-top: 16px;
+}
+
+.pfpimg {
+    width: 276px;
+    height: 270px;
+    gap: 0px;
+    border-radius: 16px 16px 0px 0px;
+    opacity: 0px;
+    margin: auto;
+}
